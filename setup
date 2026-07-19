@@ -76,7 +76,7 @@ fi
 
 # Symlink dotfiles using stow
 echo "🔗 Linking dotfiles..."
-stow -R --no-folding -d "$DOTFILES" -t "$HOME" zsh git vim mise
+stow -R --no-folding -d "$DOTFILES" -t "$HOME" zsh git vim mise ssh
 
 # Install Oh My Zsh LAST to preserve .zshrc
 OMZ="$HOME/.oh-my-zsh"
@@ -119,6 +119,10 @@ if [ ! -f "$SSH_KEY" ]; then
 else
   echo "✅ SSH key already present — skipping key generation and GitHub upload."
 fi
+
+# Cache the key's passphrase in the macOS Keychain (prompts once, then silent on every re-run/reboot)
+echo "🔐 Loading SSH key into the agent + Keychain..."
+ssh-add --apple-use-keychain "$SSH_KEY"
 
 # Set up identity only when it's actually missing
 if [ -z "$(git config user.name)" ] || [ -z "$(git config user.email)" ]; then
