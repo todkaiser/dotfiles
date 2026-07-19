@@ -1,0 +1,30 @@
+[include]
+	path = ~/.gitconfig.local
+
+[init]
+	defaultBranch = main
+
+[core]
+	editor = nvim
+
+[pull]
+	rebase = true
+
+[push]
+	autoSetupRemote = true
+
+[fetch]
+	prune = true
+
+[rebase]
+	autoStash = true
+
+[diff]
+	colorMoved = zebra
+
+[alias]
+	lg = log --oneline --graph --decorate --all
+	st = status -sb
+	co = checkout
+	br = branch -v
+	undo = reset --soft HEAD~1

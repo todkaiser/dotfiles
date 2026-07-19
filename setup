@@ -1,0 +1,156 @@
+#!/bin/sh
+set -e
+
+# Ensure macOS
+if [ "$(uname)" != "Darwin" ]; then
+  echo "❌ This script is intended for macOS only. Exiting."
+  exit 1
+fi
+
+# Start color (purple-pink)
+printf "\033[38;5;201m"
+
+# Print ASCII banner
+cat << "EOF"
+       __      __  _____ __         
+  ____/ /___  / /_/ __(_) /__  _____
+ / __  / __ \/ __/ /_/ / / _ \/ ___/
+/ /_/ / /_/ / /_/ __/ / /  __(__  ) 
+\__,_/\____/\__/_/ /_/_/\___/____/  
+                                    
+EOF
+
+# Reset color
+printf "\033[0m"
+
+echo "🔧 Starting mac setup..."
+
+# Detect architecture and Homebrew prefix
+ARCH=$(uname -m)
+
+if [ "$ARCH" = "arm64" ]; then
+  echo "🍏 Detected Apple Silicon (arm64)"
+  HOMEBREW_PREFIX="/opt/homebrew"
+elif [ "$ARCH" = "x86_64" ]; then
+  echo "🖥️  Detected Intel (x86_64)"
+  HOMEBREW_PREFIX="/usr/local"
+else
+  echo "❌ Unsupported architecture: $ARCH"
+  exit 1
+fi
+
+# Install Homebrew if not already installed
+if ! command -v brew >/dev/null 2>&1; then
+  echo "🍺 Installing Homebrew..."
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+else
+  echo "✅ Homebrew already installed."
+fi
+
+# Load Homebrew into current shell
+eval "$(${HOMEBREW_PREFIX}/bin/brew shellenv)"
+
+# Set dotfiles path before using it
+DOTFILES=$(cd "$(dirname "$0")" && pwd)
+BREWFILE="$DOTFILES/Brewfile"
+
+# Sync Homebrew with Brewfile (authoritative: install, remove extras, cleanup)
+if [ -f "$BREWFILE" ]; then
+  echo "📦 Syncing Homebrew with Brewfile..."
+  brew trust elastic/tap 2>/dev/null || true # TODO: remove once brew stops untrusted-tap prompt
+  brew bundle --file="$BREWFILE"
+  brew bundle cleanup --force --file="$BREWFILE"
+  brew autoremove
+  brew cleanup
+else
+  echo "⚠️  No Brewfile found — skipping Homebrew setup."
+fi
+
+# # Clone dotfiles if not present
+# if [ ! -d "$DOTFILES" ]; then
+#   echo "⬇️  Cloning dotfiles..."
+#   git clone https://github.com/todkaiser/dotfiles.git "$DOTFILES"
+# else
+#   echo "✅ Dotfiles already present."
+# fi
+
+# Symlink dotfiles using stow
+echo "🔗 Linking dotfiles..."
+stow -R --no-folding -d "$DOTFILES" -t "$HOME" zsh git vim mise
+
+# Install Oh My Zsh LAST to preserve .zshrc
+OMZ="$HOME/.oh-my-zsh"
+if [ ! -d "$OMZ" ]; then
+  echo "⚡ Installing Oh My Zsh..."
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --keep-zshrc
+else
+  echo "✅ Oh My Zsh already installed."
+fi
+
+# Install/use the desired languages globally
+echo "💻 Installing programming languages via mise..."
+mise install
+echo "✅ Programming languages set up successfully."
+
+# # Install VS Code extensions
+# if command -v code >/dev/null 2>&1; then
+#   echo "💻 Installing VS Code extensions..."
+#   while IFS= read -r extension; do
+#     code --install-extension "$extension" | sed '/^Installing extensions...$/d'
+#   done < "$DOTFILES/vscode/extensions.txt"
+# else
+#   echo "⚠️ VS Code CLI not found. Skipping extension installation."
+# fi
+
+# Git identity + GitHub SSH key — interactive, so it runs last (after stow, which
+# links ~/.gitconfig and its [include] of the local file written below)
+GITCONFIG_LOCAL="$HOME/.gitconfig.local"
+SSH_KEY="$HOME/.ssh/id_ed25519"   # ed25519 = current best-practice algorithm
+
+# Create + upload an SSH key only when this Mac has none; re-runs skip GitHub entirely
+if [ ! -f "$SSH_KEY" ]; then
+  echo "🔑 No SSH key found — creating one for this Mac."
+  ssh-keygen -t ed25519 -C "$(whoami)@$(hostname -s)" -f "$SSH_KEY"
+
+  gh auth status >/dev/null 2>&1 || gh auth login
+  echo "⬆️  Adding SSH key to GitHub (auth + signing)..."
+  gh ssh-key add "$SSH_KEY.pub" --title "$(scutil --get ComputerName)"
+  gh ssh-key add "$SSH_KEY.pub" --type signing --title "$(scutil --get ComputerName) (signing)"
+else
+  echo "✅ SSH key already present — skipping key generation and GitHub upload."
+fi
+
+# Set up identity only when it's actually missing
+if [ -z "$(git config user.name)" ] || [ -z "$(git config user.email)" ]; then
+  echo "🪪 Setting up your git identity..."
+
+  # Use the GitHub account's name + private (noreply) email when gh is authenticated
+  if gh auth status >/dev/null 2>&1; then
+    GIT_NAME=$(gh api user --jq '.name // .login' 2>/dev/null || true)
+    GIT_EMAIL=$(gh api user --jq '(.id | tostring) + "+" + .login + "@users.noreply.github.com"' 2>/dev/null || true)
+  fi
+
+  if [ -n "$GIT_NAME" ] && [ -n "$GIT_EMAIL" ]; then
+    echo "  Detected GitHub identity — using $GIT_NAME <$GIT_EMAIL>"
+  else
+    printf "  Full name: "
+    read -r GIT_NAME
+    printf "  Email: "
+    read -r GIT_EMAIL
+  fi
+
+  git config --file "$GITCONFIG_LOCAL" user.name "$GIT_NAME"
+  git config --file "$GITCONFIG_LOCAL" user.email "$GIT_EMAIL"
+  echo "✅ Wrote git identity to $GITCONFIG_LOCAL"
+else
+  echo "✅ Git identity already configured."
+fi
+
+# Sign commits with the SSH key (in the untracked local file, so keyless clones don't sign)
+git config --file "$GITCONFIG_LOCAL" gpg.format ssh
+git config --file "$GITCONFIG_LOCAL" user.signingkey "$SSH_KEY.pub"
+git config --file "$GITCONFIG_LOCAL" commit.gpgsign true
+
+# Relaunch zsh shell to apply configurations...
+echo "🎉 Setup complete!"
+exec zsh
