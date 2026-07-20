@@ -38,7 +38,7 @@ brew "kubernetes-cli"                  # Kubernetes command-line interface
 brew "libxml2"                         # GNOME XML library
 brew "libxslt"                         # C XSLT library for GNOME
 brew "libyaml"                         # YAML Parser
-brew "llmfit"                          #Find what models run on your hardware
+brew "llmfit"                          # Find what models run on your hardware
 brew "mas"                             # Mac App Store command-line interface
 brew "mise"                            # Polyglot runtime manager (asdf rust clone)
 brew "ncdu"                            # NCurses Disk Usage
