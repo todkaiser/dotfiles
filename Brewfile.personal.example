@@ -1,8 +1,5 @@
-# Personal / lifestyle apps — template for a private, machine-local Brewfile.
-#
-# `setup` copies this to `Brewfile.personal` (gitignored) on first run.
-# Edit that copy with your own apps; entries below are commented-out examples,
-# so a freshly seeded file installs nothing until you uncomment or add to it.
+# Personal apps — copied to Brewfile.personal (gitignored) by setup.
+# Uncomment or add your own; examples below.
 
 # Casks
 # cask "google-chrome"  # Web browser

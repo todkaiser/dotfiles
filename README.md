@@ -14,13 +14,18 @@ cd ~/dotfiles
 The setup script will:
 
 1. Install Homebrew (if not already installed)
-2. Install developer software via `Brewfile`, then personal apps via `Brewfile.personal`
+2. Install developer software via `Brewfile` (plus personal apps, if `Brewfile.personal` exists)
 3. Symlink config files into `$HOME` via `stow`
 4. Install Oh My Zsh (preserving existing `.zshrc`)
 5. Install language runtimes via `mise`
 6. Generate an SSH key (if missing) and register it on GitHub for auth + signing
 7. Prompt for your Git name/email, stored in an untracked `~/.gitconfig.local`
 8. Enable SSH commit signing with that key
+
+### Optional: personal apps
+
+`Brewfile` is dev-only. For non-dev apps (browsers, media, messaging), copy
+`Brewfile.personal.example` to `Brewfile.personal` (gitignored), add your apps, and re-run `./setup`.
 
 ## Structure
 

@@ -55,12 +55,6 @@ DOTFILES=$(cd "$(dirname "$0")" && pwd)
 BREWFILE="$DOTFILES/Brewfile"                   # core developer environment (tracked)
 BREWFILE_PERSONAL="$DOTFILES/Brewfile.personal" # personal / lifestyle apps (local, gitignored)
 
-# Seed a local, private personal Brewfile from the template on first run
-if [ ! -f "$BREWFILE_PERSONAL" ] && [ -f "$BREWFILE_PERSONAL.example" ]; then
-  cp "$BREWFILE_PERSONAL.example" "$BREWFILE_PERSONAL"
-  echo "🌱 Seeded $BREWFILE_PERSONAL from template — edit it to add your personal apps."
-fi
-
 # Sync Homebrew with the Brewfiles (authoritative: install, remove extras, cleanup)
 if [ -f "$BREWFILE" ]; then
   brew trust elastic/tap 2>/dev/null || true # TODO: remove once brew stops untrusted-tap prompt
