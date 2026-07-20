@@ -12,6 +12,7 @@ macOS development environment configuration, managed with [GNU Stow](https://www
 - **Automated SSH setup** — generates a key, registers it on GitHub for auth + signing, and caches the passphrase in the macOS Keychain for prompt-free signed commits.
 - **Secrets stay local** — git identity lives in an untracked `~/.gitconfig.local`; keys are generated, never committed.
 - **Dev vs. personal split** — a clean, public developer Brewfile plus an optional gitignored `Brewfile.personal` for non-dev apps.
+- **Security-ready** — bundles common infosec/networking tools (nmap, Burp Suite, mitmproxy, Wireshark, ngrok).
 
 ## Installation
 
