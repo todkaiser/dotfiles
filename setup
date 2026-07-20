@@ -78,14 +78,6 @@ else
   echo "⚠️  No Brewfile found — skipping Homebrew setup."
 fi
 
-# # Clone dotfiles if not present
-# if [ ! -d "$DOTFILES" ]; then
-#   echo "⬇️  Cloning dotfiles..."
-#   git clone https://github.com/todkaiser/dotfiles.git "$DOTFILES"
-# else
-#   echo "✅ Dotfiles already present."
-# fi
-
 # Symlink dotfiles using stow
 echo "🔗 Linking dotfiles..."
 stow -R --no-folding -d "$DOTFILES" -t "$HOME" zsh git vim mise ssh
