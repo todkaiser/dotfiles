@@ -20,7 +20,6 @@ brew "fd"                              # Simple, fast and user-friendly alternat
 brew "figlet"                          # Banner-like program prints strings as ASCII art
 brew "fzf"                             # Command-line fuzzy finder written in Go
 brew "gcc"                             # GNU compiler collection
-brew "gemini-cli"                      # Interact with Google Gemini AI models from the command-line
 brew "gh"                              # GitHub command-line tool
 brew "git"                             # Distributed revision control system
 brew "gmp"                             # GNU multiple precision arithmetic library
