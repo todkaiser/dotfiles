@@ -52,14 +52,32 @@ eval "$(${HOMEBREW_PREFIX}/bin/brew shellenv)"
 
 # Set dotfiles path before using it
 DOTFILES=$(cd "$(dirname "$0")" && pwd)
-BREWFILE="$DOTFILES/Brewfile"
+BREWFILE="$DOTFILES/Brewfile"                   # core developer environment (tracked)
+BREWFILE_PERSONAL="$DOTFILES/Brewfile.personal" # personal / lifestyle apps (local, gitignored)
 
-# Sync Homebrew with Brewfile (authoritative: install, remove extras, cleanup)
+# Seed a local, private personal Brewfile from the template on first run
+if [ ! -f "$BREWFILE_PERSONAL" ] && [ -f "$BREWFILE_PERSONAL.example" ]; then
+  cp "$BREWFILE_PERSONAL.example" "$BREWFILE_PERSONAL"
+  echo "🌱 Seeded $BREWFILE_PERSONAL from template — edit it to add your personal apps."
+fi
+
+# Sync Homebrew with the Brewfiles (authoritative: install, remove extras, cleanup)
 if [ -f "$BREWFILE" ]; then
-  echo "📦 Syncing Homebrew with Brewfile..."
   brew trust elastic/tap 2>/dev/null || true # TODO: remove once brew stops untrusted-tap prompt
+
+  echo "📦 Installing developer software from Brewfile..."
   brew bundle --file="$BREWFILE"
-  brew bundle cleanup --force --file="$BREWFILE"
+
+  if [ -f "$BREWFILE_PERSONAL" ]; then
+    echo "📦 Installing personal software from Brewfile.personal..."
+    brew bundle --file="$BREWFILE_PERSONAL"
+  fi
+
+  # Clean up against BOTH files (via a real temp file, since --force uninstalls)
+  COMBINED=$(mktemp)
+  cat "$BREWFILE" "$BREWFILE_PERSONAL" 2>/dev/null > "$COMBINED"
+  brew bundle cleanup --force --file="$COMBINED"
+  rm -f "$COMBINED"
   brew autoremove
   brew cleanup
 else

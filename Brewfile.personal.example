@@ -1,0 +1,13 @@
+# Personal / lifestyle apps — template for a private, machine-local Brewfile.
+#
+# `setup` copies this to `Brewfile.personal` (gitignored) on first run.
+# Edit that copy with your own apps; entries below are commented-out examples,
+# so a freshly seeded file installs nothing until you uncomment or add to it.
+
+# Casks
+# cask "google-chrome"  # Web browser
+# cask "spotify"        # Music streaming
+# cask "whatsapp"       # Messaging
+
+# Formulae
+# brew "ffmpeg"         # Audio/video processing

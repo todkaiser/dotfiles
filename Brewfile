@@ -18,7 +18,6 @@ brew "eza"                             # Useful examples at the command-line
 brew "fastfetch"                       # Like neofetch, but much faster because written mostly in C
 brew "fd"                              # Simple, fast and user-friendly alternative to find
 brew "figlet"                          # Banner-like program prints strings as ASCII art
-brew "ffmpeg"                          # Play, record, convert, and stream audio and video (Note: for yt-dlp)
 brew "fzf"                             # Command-line fuzzy finder written in Go
 brew "gcc"                             # GNU compiler collection
 brew "gemini-cli"                      # Interact with Google Gemini AI models from the command-line
@@ -65,7 +64,6 @@ brew "vim"                             # Vi 'workalike' with many additional fea
 brew "watch"                           # Executes a program periodically, showing output fullscreen
 brew "watchman"                        # Watch files and take action when they change
 brew "wget"                            # Internet file retriever
-brew "yt-dlp"                          # Feature-rich command-line audio/video downloader
 brew "zlib"                            # General-purpose lossless data-compression library
 brew "zsh"                             # UNIX shell (command interpreter)
 
@@ -74,48 +72,26 @@ brew "postgresql@18", restart_service: :changed # Object-relational database sys
 brew "redis", restart_service: :changed         # Persistent key-value database, with built-in net interface
 
 # Casks
-cask "1password"                 # Password manager that keeps all passwords secure behind one password
 cask "antigravity"               # Agent orchestration platform
 cask "antigravity-ide"           # AI Coding Agent IDE
-cask "bettertouchtool"           # Tool to customise input devices and automate computer systems
-cask "brave-browser"             # Web browser focusing on privacy
 cask "burp-suite"                # Web security testing toolkit (Community Edition)
-cask "calibre"                   # E-books management software
 cask "chatgpt"                   # OpenAI's official ChatGPT desktop app
 cask "claude"                    # Anthropic's official Claude AI desktop app
 cask "claude-code"               # Terminal-based AI coding assistant
 cask "docker-desktop"            # App to build and share containerised applications and microservices
-cask "firefox"                   # Web browser
-cask "firefox@developer-edition" # Web browser
+cask "firefox@developer-edition" # Web browser with developer tooling
 cask "gcloud-cli"                # Set of tools to manage resources and applications hosted on Google Cloud
 cask "ghostty"                   # Terminal emulator that uses platform-native UI and GPU acceleration
-cask "google-chrome"             # Web browser
-cask "google-drive"              # Client for the Google Drive storage service
 cask "iterm2"                    # Terminal emulator as alternative to Apple's Terminal app
-cask "libreoffice"               # Free cross-platform office suite, fresh version
-cask "logi-options+"             # Software for Logitech devices
-cask "microsoft-edge"            # Multi-platform web browser
 cask "mitmproxy"                 # Intercept, modify, replay, save HTTP/S traffic
 cask "ngrok"                     # Reverse proxy, secure introspectable tunnels to localhost
-cask "obsidian"                  # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "orbstack"                  # Replacement for Docker Desktop
 cask "postman"                   # Collaboration platform for API development
-cask "raycast"                   # Control your tools with a few keystrokes
-cask "signal"                    # Instant messaging application focusing on security
-cask "slack"                     # Team communication and collaboration software
-cask "spotify"                   # Music streaming service
-cask "tor-browser"               # Web browser focusing on security
 cask "vagrant"                   # Development environment
 cask "virtualbox"                # Virtualiser for x86 hardware
 cask "visual-studio-code"        # Open-source code editor
-cask "vlc"                       # Multimedia player
-cask "wechat"                    # Free messaging and calling application
 cask "wireshark-app"             # Network protocol analyzer
-cask "whatsapp"                  # Native desktop client for WhatsApp
-cask "thinkorswim"               # Desktop client for TD Ameritrade trading platform
-cask "tradingview"               # Charting and social-networking for investment traders
 cask "zed"                       # Multiplayer code editor
-cask "zen"                       # Gecko based web browser
 
 # VSCode extensions
 vscode "adpyke.vscode-sql-formatter"

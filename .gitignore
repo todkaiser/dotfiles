@@ -3,3 +3,6 @@
 .ruby-lsp/
 .env
 .env.*
+
+# Local, private personal apps — seeded from Brewfile.personal.example by setup
+Brewfile.personal

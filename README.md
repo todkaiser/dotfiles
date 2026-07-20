@@ -27,7 +27,8 @@ The setup script will:
 | Path | Contents |
 |------|----------|
 | `setup` | Bootstrap script (Homebrew, stow, SSH key, git identity) |
-| `Brewfile` | All Homebrew formulae, casks, and VS Code extensions |
+| `Brewfile` | Developer environment — CLI tools, dev apps, VS Code extensions |
+| `Brewfile.personal` | Local, gitignored personal apps (seeded from `Brewfile.personal.example`) |
 | `zsh/` | `.zshrc`, `.zprofile`, `.zsh_functions` |
 | `git/` | `.gitconfig` |
 | `ssh/` | `.ssh/config` (Keychain-backed key loading) |
