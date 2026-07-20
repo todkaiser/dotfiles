@@ -107,17 +107,38 @@ echo "✅ Programming languages set up successfully."
 GITCONFIG_LOCAL="$HOME/.gitconfig.local"
 SSH_KEY="$HOME/.ssh/id_ed25519"   # ed25519 = current best-practice algorithm
 
-# Create + upload an SSH key only when this Mac has none; re-runs skip GitHub entirely
+# Create an SSH key if this Mac has none
 if [ ! -f "$SSH_KEY" ]; then
   echo "🔑 No SSH key found — creating one for this Mac."
   ssh-keygen -t ed25519 -C "$(whoami)@$(hostname -s)" -f "$SSH_KEY"
-
-  gh auth status >/dev/null 2>&1 || gh auth login
-  echo "⬆️  Adding SSH key to GitHub (auth + signing)..."
-  gh ssh-key add "$SSH_KEY.pub" --title "$(scutil --get ComputerName)"
-  gh ssh-key add "$SSH_KEY.pub" --type signing --title "$(scutil --get ComputerName) (signing)"
 else
-  echo "✅ SSH key already present — skipping key generation and GitHub upload."
+  echo "✅ Local SSH key already exists."
+fi
+
+# Ensure the key is on GitHub. Auth and signing are separate registries, so check each.
+gh auth status >/dev/null 2>&1 || gh auth login
+
+# Ensure the user has granted the scope necessary to read/write signing keys
+if ! gh auth status 2>&1 | grep -q "admin:ssh_signing_key"; then
+  echo "🔐 Requesting additional GitHub permissions for SSH signing..."
+  gh auth refresh -h github.com -s admin:ssh_signing_key
+fi
+
+KEY_BODY=$(awk '{print $1, $2}' "$SSH_KEY.pub")   # type + key, without the comment
+KEY_TITLE=$(scutil --get ComputerName)
+
+if gh api user/keys --jq '.[].key' 2>/dev/null | grep -qxF "$KEY_BODY"; then
+  echo "✅ SSH key already on GitHub (authentication)."
+else
+  echo "⬆️  Adding SSH key to GitHub (authentication)..."
+  gh ssh-key add "$SSH_KEY.pub" --title "$KEY_TITLE"
+fi
+
+if gh api user/ssh_signing_keys --jq '.[].key' 2>/dev/null | grep -qxF "$KEY_BODY"; then
+  echo "✅ SSH key already on GitHub (signing)."
+else
+  echo "⬆️  Adding SSH key to GitHub (signing)..."
+  gh ssh-key add "$SSH_KEY.pub" --type signing --title "$KEY_TITLE (signing)"
 fi
 
 # Cache the key's passphrase in the macOS Keychain (prompts once, then silent on every re-run/reboot)
