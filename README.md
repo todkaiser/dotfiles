@@ -1,7 +1,7 @@
 <img src="assets/logo.svg" alt="dotfiles" width="360">
 
 
-macOS development environment configuration, managed with [GNU Stow](https://www.gnu.org/software/stow/) and [Homebrew](https://brew.sh/).
+One-command setup for a new Mac — developer and infosec tooling, dotfiles, and apps, managed with [GNU Stow](https://www.gnu.org/software/stow/) and [Homebrew](https://brew.sh/).
 
 ## Features
 
