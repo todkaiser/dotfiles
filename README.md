@@ -3,6 +3,16 @@
 
 macOS development environment configuration, managed with [GNU Stow](https://www.gnu.org/software/stow/) and [Homebrew](https://brew.sh/).
 
+## Features
+
+- **One command, whole machine** — Homebrew, apps, dotfiles, language runtimes, and git/SSH, all from a single `./setup`.
+- **Idempotent** — safe to re-run anytime; each step checks state and only acts when needed, reconciling your Mac with the repo.
+- **Declarative & authoritative** — the Brewfile is the source of truth; `brew bundle cleanup` removes anything not listed, so the machine matches the manifest.
+- **Stow-managed symlinks** — configs are symlinked into `$HOME`, version-controlled and reversible.
+- **Automated SSH setup** — generates a key, registers it on GitHub for auth + signing, and caches the passphrase in the macOS Keychain for prompt-free signed commits.
+- **Secrets stay local** — git identity lives in an untracked `~/.gitconfig.local`; keys are generated, never committed.
+- **Dev vs. personal split** — a clean, public developer Brewfile plus an optional gitignored `Brewfile.personal` for non-dev apps.
+
 ## Installation
 
 ```sh
@@ -11,7 +21,7 @@ cd ~/dotfiles
 ./setup
 ```
 
-The setup script will:
+The setup script runs these steps in order:
 
 1. Install Homebrew (if not already installed)
 2. Install developer software via `Brewfile` (plus personal apps, if `Brewfile.personal` exists)
