@@ -14,7 +14,7 @@ cd ~/dotfiles
 The setup script will:
 
 1. Install Homebrew (if not already installed)
-2. Sync all CLI tools and apps via `Brewfile`
+2. Install developer software via `Brewfile`, then personal apps via `Brewfile.personal`
 3. Symlink config files into `$HOME` via `stow`
 4. Install Oh My Zsh (preserving existing `.zshrc`)
 5. Install language runtimes via `mise`
