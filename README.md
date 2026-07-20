@@ -1,10 +1,5 @@
-```
-       __      __  _____ __
-  ____/ /___  / /_/ __(_) /__  _____
- / __  / __ \/ __/ /_/ / / _ \/ ___/
-/ /_/ / /_/ / /_/ __/ / /  __(__  )
-\__,_/\____/\__/_/ /_/_/\___/____/
-```
+<img src="assets/logo.svg" alt="dotfiles" width="360">
+
 
 macOS development environment configuration, managed with [GNU Stow](https://www.gnu.org/software/stow/) and [Homebrew](https://brew.sh/).
 

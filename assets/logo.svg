@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="540" height="150" viewBox="0 0 540 150" role="img" aria-label="dotfiles">
+  <style>
+    text { font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace; font-size: 24px; white-space: pre; fill: #FF00FF; }
+  </style>
+  <text xml:space="preserve" x="10" y="34">       __      __  _____ __         </text>
+  <text xml:space="preserve" x="10" y="60">  ____/ /___  / /_/ __(_) /__  _____</text>
+  <text xml:space="preserve" x="10" y="86"> / __  / __ \/ __/ /_/ / / _ \/ ___/</text>
+  <text xml:space="preserve" x="10" y="112">/ /_/ / /_/ / /_/ __/ / /  __(__  ) </text>
+  <text xml:space="preserve" x="10" y="138">\__,_/\____/\__/_/ /_/_/\___/____/  </text>
+</svg>
