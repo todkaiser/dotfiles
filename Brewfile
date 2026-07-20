@@ -1,3 +1,6 @@
+# Brewfile — software for a new Mac: developer + infosec tooling, plus some misc apps.
+# This is my personal setup; fork and tailor it to your own preferences.
+
 tap "elastic/tap"
 tap "universal-ctags/universal-ctags"
 
@@ -17,6 +20,7 @@ brew "emacs"                           # GNU Emacs text editor
 brew "eza"                             # Useful examples at the command-line
 brew "fastfetch"                       # Like neofetch, but much faster because written mostly in C
 brew "fd"                              # Simple, fast and user-friendly alternative to find
+brew "ffmpeg"                          # Audio/video processing (yt-dlp dependency)
 brew "figlet"                          # Banner-like program prints strings as ASCII art
 brew "fzf"                             # Command-line fuzzy finder written in Go
 brew "gcc"                             # GNU compiler collection
@@ -63,6 +67,7 @@ brew "vim"                             # Vi 'workalike' with many additional fea
 brew "watch"                           # Executes a program periodically, showing output fullscreen
 brew "watchman"                        # Watch files and take action when they change
 brew "wget"                            # Internet file retriever
+brew "yt-dlp"                          # Audio/video downloader
 brew "zlib"                            # General-purpose lossless data-compression library
 brew "zsh"                             # UNIX shell (command interpreter)
 
@@ -71,26 +76,46 @@ brew "postgresql@18", restart_service: :changed # Object-relational database sys
 brew "redis", restart_service: :changed         # Persistent key-value database, with built-in net interface
 
 # Casks
+cask "1password"                 # Password manager
 cask "antigravity"               # Agent orchestration platform
 cask "antigravity-ide"           # AI Coding Agent IDE
+cask "bettertouchtool"           # Input device customization / automation
+cask "brave-browser"             # Privacy-focused browser
 cask "burp-suite"                # Web security testing toolkit (Community Edition)
+cask "calibre"                   # E-book management
 cask "chatgpt"                   # OpenAI's official ChatGPT desktop app
 cask "claude"                    # Anthropic's official Claude AI desktop app
 cask "claude-code"               # Terminal-based AI coding assistant
 cask "docker-desktop"            # App to build and share containerised applications and microservices
+cask "firefox"                   # Web browser
 cask "firefox@developer-edition" # Web browser with developer tooling
 cask "gcloud-cli"                # Set of tools to manage resources and applications hosted on Google Cloud
 cask "ghostty"                   # Terminal emulator that uses platform-native UI and GPU acceleration
+cask "google-chrome"             # Web browser
+cask "google-drive"              # Google Drive client
 cask "iterm2"                    # Terminal emulator as alternative to Apple's Terminal app
+cask "libreoffice"               # Office suite
+cask "logi-options+"             # Logitech device software
+cask "microsoft-edge"            # Web browser
 cask "mitmproxy"                 # Intercept, modify, replay, save HTTP/S traffic
 cask "ngrok"                     # Reverse proxy, secure introspectable tunnels to localhost
+cask "obsidian"                  # Markdown knowledge base
 cask "orbstack"                  # Replacement for Docker Desktop
 cask "postman"                   # Collaboration platform for API development
+cask "raycast"                   # Launcher / productivity
+cask "signal"                    # Secure messaging
+cask "slack"                     # Team communication
+cask "spotify"                   # Music streaming
+cask "tor-browser"               # Privacy browser
 cask "vagrant"                   # Development environment
 cask "virtualbox"                # Virtualiser for x86 hardware
 cask "visual-studio-code"        # Open-source code editor
+cask "vlc"                       # Media player
+cask "wechat"                    # Messaging
+cask "whatsapp"                  # Messaging
 cask "wireshark-app"             # Network protocol analyzer
 cask "zed"                       # Multiplayer code editor
+cask "zen"                       # Gecko-based browser
 
 # VSCode extensions
 vscode "adpyke.vscode-sql-formatter"
