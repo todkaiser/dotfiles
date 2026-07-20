@@ -2,27 +2,27 @@
 # Uncomment or add your own; examples below.
 
 # Formulae
-brew "ffmpeg" # Audio/video processing (yt-dlp dependency)
-brew "yt-dlp" # Audio/video downloader
+# brew "ffmpeg" # Audio/video processing
+# brew "yt-dlp" # Audio/video downloader
 
 # Casks
-cask "1password"       # Password manager
-cask "bettertouchtool" # Input device customization / automation
-cask "brave-browser"   # Privacy-focused browser
-cask "google-chrome"   # Web browser
-cask "firefox"         # Web browser
-cask "calibre"         # E-book management
-cask "google-drive"    # Google Drive client
-cask "libreoffice"     # Office suite
-cask "logi-options+"   # Logitech device software
-cask "microsoft-edge"  # Web browser
-cask "obsidian"        # Markdown knowledge base
-cask "raycast"         # Launcher / productivity
-cask "signal"          # Secure messaging
-cask "slack"           # Team communication
-cask "spotify"         # Music streaming
-cask "tor-browser"     # Privacy browser
-cask "vlc"             # Media player
-cask "wechat"          # Messaging
-cask "whatsapp"        # Messaging
-cask "zen"             # Gecko-based browser
+# cask "1password"       # Password manager
+# cask "bettertouchtool" # Input device customization / automation
+# cask "brave-browser"   # Privacy-focused browser
+# cask "google-chrome"   # Web browser
+# cask "firefox"         # Web browser
+# cask "calibre"         # E-book management
+# cask "google-drive"    # Google Drive client
+# cask "libreoffice"     # Office suite
+# cask "logi-options+"   # Logitech device software
+# cask "microsoft-edge"  # Web browser
+# cask "obsidian"        # Markdown knowledge base
+# cask "raycast"         # Launcher / productivity
+# cask "signal"          # Secure messaging
+# cask "slack"           # Team communication
+# cask "spotify"         # Music streaming
+# cask "tor-browser"     # Privacy browser
+# cask "vlc"             # Media player
+# cask "wechat"          # Messaging
+# cask "whatsapp"        # Messaging
+# cask "zen"             # Gecko-based browser
