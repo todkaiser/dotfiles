@@ -24,8 +24,8 @@ The setup script will:
 
 ### Optional: personal apps
 
-`Brewfile` is dev-only. For non-dev apps (browsers, media, messaging), copy
-`Brewfile.personal.example` to `Brewfile.personal` (gitignored), add your apps, and re-run `./setup`.
+`Brewfile` is dev-only. For non-dev apps (browsers, media, messaging), add them to a gitignored
+`Brewfile.personal` (see `Brewfile.personal.example`) and re-run `./setup`.
 
 ## Structure
 

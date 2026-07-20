@@ -1,4 +1,4 @@
-# Personal apps — copied to Brewfile.personal (gitignored) by setup.
+# Personal apps — copy to Brewfile.personal (gitignored), then re-run setup.
 # Uncomment or add your own; examples below.
 
 # Casks
