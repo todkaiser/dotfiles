@@ -6,9 +6,9 @@ tap "universal-ctags/universal-ctags"
 
 # Formulae
 brew "autoconf"                        # Automatic configure script builder
-brew "automake"                        # Tool for generating GNU Standards-compliant Makefiler
+brew "automake"                        # Tool for generating GNU Standards-compliant Makefiles
 brew "awscli"                          # Official Amazon AWS command-line interface
-brew "bat"                             # Clone of cat(1) with syntax highlighting and Git entegration
+brew "bat"                             # Clone of cat(1) with syntax highlighting and Git integration
 brew "btop"                            # Resource monitor. C++ version and continuation of bashtop and bpytop
 brew "cmake"                           # Cross-platform make
 brew "coreutils"                       # GNU File, Shell, and Text utilities
@@ -17,7 +17,7 @@ brew "direnv"                          # Load/unload environment variables based
 brew "elastic/tap/elasticsearch-full"  # Distributed search & analytics engine
 brew "elastic/tap/kibana-full"         # Analytics and search dashboard for Elasticsearch
 brew "emacs"                           # GNU Emacs text editor
-brew "eza"                             # Useful examples at the command-line
+brew "eza"                             # Modern, maintained replacement for ls
 brew "fastfetch"                       # Like neofetch, but much faster because written mostly in C
 brew "fd"                              # Simple, fast and user-friendly alternative to find
 brew "ffmpeg"                          # Audio/video processing (yt-dlp dependency)
@@ -27,12 +27,12 @@ brew "gcc"                             # GNU compiler collection
 brew "gh"                              # GitHub command-line tool
 brew "git"                             # Distributed revision control system
 brew "gmp"                             # GNU multiple precision arithmetic library
-brew "gnupg"                           # GNU Pretty Good Privacy (PGP) package
+brew "gnupg"                           # GNU Privacy Guard (OpenPGP)
 brew "glances"                         # Alternative to top/htop
 brew "htop"                            # Improved top (interactive process viewer)
 brew "httpie"                          # User-friendly cURL replacement (command-line HTTP client)
 brew "icu4c"                           # C/C++ and Java libraries for Unicode and globalization
-brew "imagemagick"                     # Tools and libraries to manipulate images in many formats
+brew "imagemagick"                     # Tools and libraries to manipulate images in select formats
 brew "jq"                              # Lightweight and flexible command-line JSON processor
 brew "jsonpp"                          # Command-line JSON pretty-printer
 brew "kubectx"                         # Tool that can switch between kubectl contexts easily and create aliases
@@ -67,7 +67,7 @@ brew "vim"                             # Vi 'workalike' with many additional fea
 brew "watch"                           # Executes a program periodically, showing output fullscreen
 brew "watchman"                        # Watch files and take action when they change
 brew "wget"                            # Internet file retriever
-brew "yt-dlp"                          # Audio/video downloader
+brew "yt-dlp"                          # Feature-rich command-line audio/video downloader
 brew "zlib"                            # General-purpose lossless data-compression library
 brew "zsh"                             # UNIX shell (command interpreter)
 
@@ -76,13 +76,13 @@ brew "postgresql@18", restart_service: :changed # Object-relational database sys
 brew "redis", restart_service: :changed         # Persistent key-value database, with built-in net interface
 
 # Casks
-cask "1password"                 # Password manager
+cask "1password"                 # Password manager that keeps all passwords secure behind one password
 cask "antigravity"               # Agent orchestration platform
 cask "antigravity-ide"           # AI Coding Agent IDE
-cask "bettertouchtool"           # Input device customization / automation
-cask "brave-browser"             # Privacy-focused browser
+cask "bettertouchtool"           # Tool to customise input devices and automate computer systems
+cask "brave-browser"             # Web browser focusing on privacy
 cask "burp-suite"                # Web security testing toolkit (Community Edition)
-cask "calibre"                   # E-book management
+cask "calibre"                   # E-books management software
 cask "chatgpt"                   # OpenAI's official ChatGPT desktop app
 cask "claude"                    # Anthropic's official Claude AI desktop app
 cask "claude-code"               # Terminal-based AI coding assistant
@@ -92,30 +92,30 @@ cask "firefox@developer-edition" # Web browser with developer tooling
 cask "gcloud-cli"                # Set of tools to manage resources and applications hosted on Google Cloud
 cask "ghostty"                   # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "google-chrome"             # Web browser
-cask "google-drive"              # Google Drive client
+cask "google-drive"              # Client for the Google Drive storage service
 cask "iterm2"                    # Terminal emulator as alternative to Apple's Terminal app
-cask "libreoffice"               # Office suite
-cask "logi-options+"             # Logitech device software
-cask "microsoft-edge"            # Web browser
+cask "libreoffice"               # Free cross-platform office suite, fresh version
+cask "logi-options+"             # Software for Logitech devices
+cask "microsoft-edge"            # Multi-platform web browser
 cask "mitmproxy"                 # Intercept, modify, replay, save HTTP/S traffic
 cask "ngrok"                     # Reverse proxy, secure introspectable tunnels to localhost
-cask "obsidian"                  # Markdown knowledge base
+cask "obsidian"                  # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "orbstack"                  # Replacement for Docker Desktop
 cask "postman"                   # Collaboration platform for API development
-cask "raycast"                   # Launcher / productivity
-cask "signal"                    # Secure messaging
-cask "slack"                     # Team communication
-cask "spotify"                   # Music streaming
-cask "tor-browser"               # Privacy browser
+cask "raycast"                   # Control your tools with a few keystrokes
+cask "signal"                    # Instant messaging application focusing on security
+cask "slack"                     # Team communication and collaboration software
+cask "spotify"                   # Music streaming service
+cask "tor-browser"               # Web browser focusing on security
 cask "vagrant"                   # Development environment
-cask "virtualbox"                # Virtualiser for x86 hardware
+cask "virtualbox"                # Virtualiser for arm64 hardware
 cask "visual-studio-code"        # Open-source code editor
-cask "vlc"                       # Media player
-cask "wechat"                    # Messaging
-cask "whatsapp"                  # Messaging
+cask "vlc"                       # Multimedia player
+cask "wechat"                    # Free messaging and calling application
+cask "whatsapp"                  # Native desktop client for WhatsApp
 cask "wireshark-app"             # Network protocol analyzer
 cask "zed"                       # Multiplayer code editor
-cask "zen"                       # Gecko-based browser
+cask "zen"                       # Gecko based web browser
 
 # VSCode extensions
 vscode "adpyke.vscode-sql-formatter"
