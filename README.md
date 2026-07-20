@@ -18,7 +18,7 @@ The setup script will:
 3. Symlink config files into `$HOME` via `stow`
 4. Install Oh My Zsh (preserving existing `.zshrc`)
 5. Install language runtimes via `mise`
-6. Generate an SSH key and add it to GitHub for auth + signing (first run only)
+6. Generate an SSH key (if missing) and register it on GitHub for auth + signing
 7. Prompt for your Git name/email, stored in an untracked `~/.gitconfig.local`
 8. Enable SSH commit signing with that key
 
