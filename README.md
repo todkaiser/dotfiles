@@ -31,9 +31,11 @@ The setup script will:
 
 | Path | Contents |
 |------|----------|
+| `setup` | Bootstrap script (Homebrew, stow, SSH key, git identity) |
 | `Brewfile` | All Homebrew formulae, casks, and VS Code extensions |
-| `zsh/` | `.zshrc`, `.zprofile` |
+| `zsh/` | `.zshrc`, `.zprofile`, `.zsh_functions` |
 | `git/` | `.gitconfig` |
+| `ssh/` | `.ssh/config` (Keychain-backed key loading) |
 | `vim/` | `.vimrc` |
 | `mise/` | Runtime manager config (Ruby, Node, Go, Python, Rust) |
 | `vscode/` | Extension list |
