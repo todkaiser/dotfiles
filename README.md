@@ -33,7 +33,7 @@ The setup script will:
 |------|----------|
 | `setup` | Bootstrap script (Homebrew, stow, SSH key, git identity) |
 | `Brewfile` | Developer environment — CLI tools, dev apps, VS Code extensions |
-| `Brewfile.personal` | Local, gitignored personal apps (seeded from `Brewfile.personal.example`) |
+| `Brewfile.personal` | Local, gitignored — any misc non-dev software |
 | `zsh/` | `.zshrc`, `.zprofile`, `.zsh_functions` |
 | `git/` | `.gitconfig` |
 | `ssh/` | `.ssh/config` (Keychain-backed key loading) |
