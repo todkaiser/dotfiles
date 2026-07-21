@@ -26,20 +26,14 @@ brew "fzf"                             # Command-line fuzzy finder written in Go
 brew "gcc"                             # GNU compiler collection
 brew "gh"                              # GitHub command-line tool
 brew "git"                             # Distributed revision control system
-brew "gmp"                             # GNU multiple precision arithmetic library
 brew "gnupg"                           # GNU Privacy Guard (OpenPGP)
 brew "glances"                         # Alternative to top/htop
 brew "htop"                            # Improved top (interactive process viewer)
 brew "httpie"                          # User-friendly cURL replacement (command-line HTTP client)
-brew "icu4c"                           # C/C++ and Java libraries for Unicode and globalization
 brew "imagemagick"                     # Tools and libraries to manipulate images in select formats
 brew "jq"                              # Lightweight and flexible command-line JSON processor
-brew "jsonpp"                          # Command-line JSON pretty-printer
 brew "kubectx"                         # Tool that can switch between kubectl contexts easily and create aliases
 brew "kubernetes-cli"                  # Kubernetes command-line interface
-brew "libxml2"                         # GNOME XML library
-brew "libxslt"                         # C XSLT library for GNOME
-brew "libyaml"                         # YAML Parser
 brew "llmfit"                          # Find what models run on your hardware
 brew "mas"                             # Mac App Store command-line interface
 brew "mise"                            # Polyglot runtime manager (asdf rust clone)
@@ -47,15 +41,11 @@ brew "ncdu"                            # NCurses Disk Usage
 brew "neovim"                          # Ambitious Vim-fork focused on extensibility and agility
 brew "nmap"                            # Port scanning utility for large networks
 brew "ollama"                          # Create, run, and share large language models (LLMs)
-brew "openssl", link: false            # Cryptography and SSL/TLS Toolkit
 brew "opencode"                        # AI coding agent, built for the terminal
-brew "ossp-uuid"                       # ISO-C API and CLI for generating UUIDs
 brew "overmind"                        # Process manager for Procfile-based applications and tmux
 brew "pkg-config-wrapper"              # Easier way to include C code in your Go program
 brew "podman"                          # Tool for managing OCI containers and pods
-brew "readline"                        # Library for command-line editing
 brew "ripgrep"                         # Search tool like grep and The Silver Searcher
-brew "reattach-to-user-namespace"      # Reattach process (e.g., tmux) to background
 brew "sniffnet"                        # Cross-platform application to monitor your network traffic
 brew "stow"                            # Organize software neatly under a single directory tree (e.g. /usr/local)
 brew "sttr"                            # CLI to perform various operations on string
@@ -65,7 +55,6 @@ brew "tree"                            # Display directories as trees (with opti
 brew "universal-ctags", args: ["HEAD"] # Maintained ctags implementation
 brew "vim"                             # Vi 'workalike' with many additional features
 brew "watch"                           # Executes a program periodically, showing output fullscreen
-brew "watchman"                        # Watch files and take action when they change
 brew "wget"                            # Internet file retriever
 brew "yt-dlp"                          # Feature-rich command-line audio/video downloader
 brew "zlib"                            # General-purpose lossless data-compression library
@@ -107,7 +96,6 @@ cask "signal"                    # Instant messaging application focusing on sec
 cask "slack"                     # Team communication and collaboration software
 cask "spotify"                   # Music streaming service
 cask "tor-browser"               # Web browser focusing on security
-cask "vagrant"                   # Development environment
 cask "virtualbox"                # Virtualiser for arm64 hardware
 cask "visual-studio-code"        # Open-source code editor
 cask "vlc"                       # Multimedia player
