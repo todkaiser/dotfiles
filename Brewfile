@@ -91,7 +91,6 @@ cask "ngrok"                     # Reverse proxy, secure introspectable tunnels 
 cask "obsidian"                  # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "orbstack"                  # Replacement for Docker Desktop
 cask "postman"                   # Collaboration platform for API development
-cask "raycast"                   # Control your tools with a few keystrokes
 cask "signal"                    # Instant messaging application focusing on security
 cask "slack"                     # Team communication and collaboration software
 cask "spotify"                   # Music streaming service
