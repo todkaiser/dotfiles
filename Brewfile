@@ -1,7 +1,7 @@
 # Brewfile — software for a new Mac: developer + infosec tooling, plus some misc apps.
 # This is my personal setup; fork and tailor it to your own preferences.
 
-tap "elastic/tap"
+tap "elastic/tap", trusted: true
 tap "universal-ctags/universal-ctags"
 
 # Formulae
