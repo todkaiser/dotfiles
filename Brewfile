@@ -30,6 +30,7 @@ brew "gnupg"                           # GNU Privacy Guard (OpenPGP)
 brew "glances"                         # Alternative to top/htop
 brew "htop"                            # Improved top (interactive process viewer)
 brew "httpie"                          # User-friendly cURL replacement (command-line HTTP client)
+brew "httrack"                         # Website copier/offline browser
 brew "imagemagick"                     # Tools and libraries to manipulate images in select formats
 brew "jq"                              # Lightweight and flexible command-line JSON processor
 brew "kubectx"                         # Tool that can switch between kubectl contexts easily and create aliases
