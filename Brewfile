@@ -84,6 +84,7 @@ cask "ghostty"                   # Terminal emulator that uses platform-native U
 cask "google-chrome"             # Web browser
 cask "google-drive"              # Client for the Google Drive storage service
 cask "iterm2"                    # Terminal emulator as alternative to Apple's Terminal app
+cask "kiwix"                     # App providing offline access to Wikipedia and many other web sites
 cask "libreoffice"               # Free cross-platform office suite, fresh version
 cask "logi-options+"             # Software for Logitech devices
 cask "microsoft-edge"            # Multi-platform web browser
