@@ -32,12 +32,14 @@ brew "htop"                            # Improved top (interactive process viewe
 brew "httpie"                          # User-friendly cURL replacement (command-line HTTP client)
 brew "httrack"                         # Website copier/offline browser
 brew "imagemagick"                     # Tools and libraries to manipulate images in select formats
+brew "iperf3"                          # Update of iperf: measures TCP, UDP, and SCTP bandwidth
 brew "jq"                              # Lightweight and flexible command-line JSON processor
 brew "kubectx"                         # Tool that can switch between kubectl contexts easily and create aliases
 brew "kubernetes-cli"                  # Kubernetes command-line interface
 brew "llmfit"                          # Find what models run on your hardware
 brew "mas"                             # Mac App Store command-line interface
 brew "mise"                            # Polyglot runtime manager (asdf rust clone)
+brew "mtr"                             # 'traceroute' and 'ping' in a single tool
 brew "ncdu"                            # NCurses Disk Usage
 brew "neovim"                          # Ambitious Vim-fork focused on extensibility and agility
 brew "nmap"                            # Port scanning utility for large networks
