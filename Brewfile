@@ -71,7 +71,6 @@ brew "redis", restart_service: :changed         # Persistent key-value database,
 cask "1password"                 # Password manager that keeps all passwords secure behind one password
 cask "antigravity"               # Agent orchestration platform
 cask "antigravity-ide"           # AI Coding Agent IDE
-cask "bettertouchtool"           # Tool to customise input devices and automate computer systems
 cask "brave-browser"             # Web browser focusing on privacy
 cask "burp-suite"                # Web security testing toolkit (Community Edition)
 cask "calibre"                   # E-books management software
